@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rasel Ahmed — Sr SQA Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f7f6f3;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555550;
+      --text-tertiary: #999994;
+      --border: rgba(0,0,0,0.12);
+      --border-hover: rgba(0,0,0,0.22);
+      --accent: #185fa5;
+      --accent-bg: #e6f1fb;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1c1a;
+        --bg-secondary: #252523;
+        --text-primary: #f0ede8;
+        --text-secondary: #a8a49e;
+        --text-tertiary: #666660;
+        --border: rgba(255,255,255,0.10);
+        --border-hover: rgba(255,255,255,0.20);
+        --accent: #85b7eb;
+        --accent-bg: #042c53;
+      }
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 48px 24px 80px;
+    }
+
+    .port {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 2rem;
+      align-items: end;
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 48px;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title {
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-top: 14px;
+      line-height: 1.65;
+      max-width: 440px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border-hover);
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+    }
+
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      align-items: flex-end;
+    }
+
+    .contact-item {
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-tertiary);
+      flex-shrink: 0;
+    }
+
+    /* Section */
+    .section { margin-bottom: 2.25rem; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 14px;
+      padding-bottom: 7px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    /* Experience */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 148px 1fr;
+      gap: 0 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .exp-meta { padding-top: 3px; }
+
+    .exp-period {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    .exp-flag {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-top: 4px;
+    }
+
+    .exp-company {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .exp-role {
+      font-size: 11.5px;
+      font-family: 'DM Mono', monospace;
+      color: var(--text-secondary);
+      margin-top: 3px;
+      margin-bottom: 10px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .exp-bullets li {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 5px;
+      height: 1px;
+      background: var(--text-tertiary);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .skill-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      border: 0.5px solid var(--border);
+      padding: 12px 14px;
+    }
+
+    .skill-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 6px;
+    }
+
+    .skill-items {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .project-card {
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 13px 15px;
+      background: var(--bg);
+      transition: border-color 0.15s;
+    }
+
+    .project-card:hover { border-color: var(--border-hover); }
+
+    .proj-name {
+      font-size: 13.5px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .proj-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Certs */
+    .cert-list { display: flex; flex-direction: column; gap: 0; }
+
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13.5px;
+      padding: 9px 0;
+      border-bottom: 0.5px solid var(--border);
+      gap: 1rem;
+    }
+
+    .cert-item:last-child { border-bottom: none; }
+
+    .cert-org {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+    }
+
+    /* Education */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 1rem;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-school { font-size: 13.5px; font-weight: 500; }
+    .edu-degree { font-size: 12.5px; color: var(--text-secondary); margin-top: 2px; }
+
+    .edu-right { text-align: right; }
+
+    .edu-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    .edu-gpa {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .interests { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .interest-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      padding: 4px 13px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border-hover);
+      color: var(--accent);
+      background: var(--accent-bg);
+    }
+
+    .lang-row { display: flex; gap: 16px; }
+
+    .lang-item {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* Responsive */
+    @media (max-width: 560px) {
+      .hero { grid-template-columns: 1fr; }
+      .contact-block { align-items: flex-start; }
+      .exp-item { grid-template-columns: 1fr; gap: 4px; }
+      .exp-meta { display: flex; gap: 12px; align-items: baseline; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+<div class="port">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div>
+      <div class="hero-name">Rasel Ahmed</div>
+      <div class="hero-title">Sr SQA Engineer &nbsp;·&nbsp; 5 yrs experience</div>
+      <div class="hero-tagline">Results-driven quality engineer specializing in test automation, API, mobile, web, and performance testing — with deep CI/CD and Agile expertise.</div>
+      <div class="badge-row">
+        <span class="badge">Selenium</span>
+        <span class="badge">Appium</span>
+        <span class="badge">Rest-Assured</span>
+        <span class="badge">JMeter</span>
+        <span class="badge">Jenkins</span>
+        <span class="badge">Postman</span>
+        <span class="badge">Java</span>
+        <span class="badge">Jira</span>
+      </div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-item"><div class="dot"></div>Dhaka, Bangladesh</div>
+      <div class="contact-item"><div class="dot"></div>+880-1714-275297</div>
+      <div class="contact-item"><div class="dot"></div><a href="mailto:raaasseel@gmail.com">raaasseel@gmail.com</a></div>
+      <div class="contact-item"><div class="dot"></div><a href="https://github.com/RaselSQA" target="_blank" rel="noopener">GitHub</a></div>
+      <div class="contact-item"><div class="dot"></div><a href="https://linkedin.com/in/rasel-ahmed" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <div class="section">
+    <div class="section-label">Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Jan 2025 – Present</div>
+        <div class="exp-flag">Remote · USA</div>
+      </div>
+      <div>
+        <div class="exp-company">SpaceCats Tech</div>
+        <div class="exp-role">Sr SQA Engineer</div>
+        <ul class="exp-bullets">
+          <li>Led QA team and trained junior members</li>
+          <li>Reviewed automation tests, analyzed reports & fixed failures</li>
+          <li>Delivered client demos and participated in sprint planning</li>
+          <li>Prioritized ClickUp tickets and coordinated fixes with developers</li>
+          <li>Reproduced client issues and shared detailed findings with devs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">May 2023 – Apr 2025</div>
+        <div class="exp-flag">Hybrid · UK & BD</div>
+      </div>
+      <div>
+        <div class="exp-company">Hubar Tech</div>
+        <div class="exp-role">SQA Engineer</div>
+        <ul class="exp-bullets">
+          <li>Android & iOS app testing, web automation & UX/UI testing</li>
+          <li>API testing with Postman; automation via Rest-Assured</li>
+          <li>Database, load, and performance testing</li>
+          <li>Functional, regression, UAT, and usability testing</li>
+          <li>Managed Jira tickets, test plans, and full bug lifecycle</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Sep 2022 – Apr 2023</div>
+        <div class="exp-flag">Onsite · Korea & BD</div>
+      </div>
+      <div>
+        <div class="exp-company">TiCON System</div>
+        <div class="exp-role">SQA Engineer</div>
+        <ul class="exp-bullets">
+          <li>Web automation with Selenium; manual & exploratory testing</li>
+          <li>Cross-browser and cross-functional testing; UI/UX validation</li>
+          <li>API, performance, and load testing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Mar 2021 – Aug 2022</div>
+        <div class="exp-flag">Onsite</div>
+      </div>
+      <div>
+        <div class="exp-company">Dtech Online</div>
+        <div class="exp-role">Engr Software QA & Automation</div>
+        <ul class="exp-bullets">
+          <li>Requirement analysis, test planning, design & review</li>
+          <li>Functional, usability, compatibility & security testing</li>
+          <li>Root cause analysis, bug reporting, and test execution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">Automation</div>
+        <div class="skill-items">Selenium<br>Appium<br>Rest-Assured</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">API & Performance</div>
+        <div class="skill-items">Postman<br>JMeter<br>Nmap</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Build & CI/CD</div>
+        <div class="skill-items">Maven, Gradle<br>TestNG, Cucumber<br>Jenkins</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-items">Java<br>PHP (Laravel)</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Database</div>
+        <div class="skill-items">MySQL<br>PostgreSQL<br>Cerillion BSS</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Project Tracking</div>
+        <div class="skill-items">Jira<br>ClickUp<br>Git / GitHub</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Methodologies</div>
+        <div class="skill-items">Agile / Scrum<br>SDLC, STLC<br>OOP</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Manual Testing</div>
+        <div class="skill-items">Functional, Regression<br>UAT, Smoke, Sanity<br>BVA, A/B Testing</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="section">
+    <div class="section-label">Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="proj-name">Metro Hospitality & FrontDesk</div>
+        <div class="proj-desc">Hotel reservation system — Arizona, USA</div>
+      </div>
+      <div class="project-card">
+        <div class="proj-name">TVStorm</div>
+        <div class="proj-desc">Led QA for Indonesia's leading OTT platform</div>
+      </div>
+      <div class="project-card">
+        <div class="proj-name">SURE Telecom</div>
+        <div class="proj-desc">Telecom website serving Channel Islands, Isle of Man & British Overseas Territories</div>
+      </div>
+      <div class="project-card">
+        <div class="proj-name">OurOwn</div>
+        <div class="proj-desc">Social platform — feeds, marketplace, jobs, communities & housing</div>
+      </div>
+      <div class="project-card">
+        <div class="proj-name">POS System</div>
+        <div class="proj-desc">Test automation for Cable & Wireless, Seychelles</div>
+      </div>
+      <div class="project-card">
+        <div class="proj-name">Rocksolid Endurance</div>
+        <div class="proj-desc">Digital fitness and endurance training platform</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="section">
+    <div class="section-label">Education</div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-school">Daffodil International University</div>
+        <div class="edu-degree">B.Sc. in Computer Science & Engineering</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-year">2020</div>
+        <div class="edu-gpa">CGPA 3.17 / 4</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-school">Cantonment College Jessore</div>
+        <div class="edu-degree">HSC in Science</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-year">2014</div>
+        <div class="edu-gpa">GPA 4.70 / 5</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-school">Carew's High School, Darsana</div>
+        <div class="edu-degree">SSC in Science</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-year">2012</div>
+        <div class="edu-gpa">GPA 5.00 / 5</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div class="section">
+    <div class="section-label">Certifications & Training</div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <span>Web Automation with Selenium</span>
+        <span class="cert-org">CodersLive.net · 2023–2024</span>
+      </div>
+      <div class="cert-item">
+        <span>Fundamentals of Software Testing & Quality Assurance</span>
+        <span class="cert-org">Pondit · 2022–2023</span>
+      </div>
+      <div class="cert-item">
+        <span>Web Application Development with Laravel</span>
+        <span class="cert-org">TECHTRIX Technologies · 2020</span>
+      </div>
+      <div class="cert-item">
+        <span>Mobile Application Development</span>
+        <span class="cert-org">BITM · 2019</span>
+      </div>
+      <div class="cert-item">
+        <span>AWS Certified Solutions Architect – Associate (SAA-C03)</span>
+        <span class="cert-org">Workshop</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="interests">
+      <span class="interest-tag">AWS</span>
+      <span class="interest-tag">DevOps</span>
+      <span class="interest-tag">AI / ML</span>
+    </div>
+    <div class="lang-row">
+      <span class="lang-item">English (Fluent)</span>
+      <span class="lang-item">Bengali (Native)</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
